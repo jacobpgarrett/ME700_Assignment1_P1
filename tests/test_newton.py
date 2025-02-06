@@ -21,12 +21,16 @@ def test_simple():
 def test_2D():
     guess = [1, 1]
     u, v = sp.symbols('u v')
-    f1 = lambda: u+v - .5
-    f2 = lambda: u*v + 10*u -5
+    f1 = -((10+u)/sp.sqrt(v**2+(10+u)**2))*100*(sp.sqrt(v**2+(10+u)**2)-10)+((10-u)/sp.sqrt(v**2+(10-u)**2))*200*(sp.sqrt(v**2+(10-u)**2)-10)
+    f2 = (v/sp.sqrt(v**2+(10+u)**2))*100*(sp.sqrt(v**2+(10+u)**2)-10)+(v/sp.sqrt(v**2+(10-u)**2))*200*(sp.sqrt(v**2+(10-u)**2)-10)-0.1
+
     f = sp.Matrix([f1, f2]) # Function vector
+
     df = f.jacobian([u, v]) # Define Jacobian matrix
+
     f = sp.lambdify((u, v), f, 'numpy')
     df = sp.lambdify((u, v), df, 'numpy')
+
     found = newton(guess, f, df)
-    known = [0.5, 0]
+    known = [0.00296803, 0.42190384]
     assert np.allclose(found, known)
