@@ -33,7 +33,7 @@ jobs:
         run: pip install pytest pytest-cov
 
       - name: Run tests with coverage
-        run: pytest --cov=bisectionmethod --cov-report=xml
+        run: pytest --cov=ME700_Assignment1_P1 --cov-report=xml
         # Replace 'my_package' with your actual package name
 
       - name: Upload coverage reports to Codecov
