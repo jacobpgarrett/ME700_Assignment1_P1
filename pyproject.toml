@@ -8,7 +8,7 @@ version = "0.0.0"
 authors = [
   { name="Jacob Garrett", email="jpg2002@bu.edu" },
 ]
-description = "name = "ME700_Assignment1_P1 workflow"
+description = "ME700_Assignment1_P1 workflow"
 readme = "README.md"
 license = { file="LICENSE" }
 requires-python = ">=3.9"
