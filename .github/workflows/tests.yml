@@ -1,47 +1,42 @@
-name: Run Tests
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+name: Workflow for Codecov ME700_Assignment1_P1
+on: [push, pull_request]
 jobs:
-  test:
-    runs-on: ${{ matrix.platform }}
-
-    strategy:
-      matrix:
-        platform: [macos-latest, ubuntu-latest, windows-latest]
-        python-version: ["3.12.8"]
-
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
-      - name: Check out repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
-
+          python-version: '3.12'
       - name: Install dependencies
-        run: pip install -e .
-
-      - name: Install test dependencies
-        run: pip install pytest pytest-cov
-
-      - name: Run tests with coverage
-        run: pytest --cov=ME700_Assignment1_P1 --cov-report=xml
-        # Replace 'my_package' with your actual package name
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
+        run: pip install -r requirements.txt
+      - name: Run tests and collect coverage
+        run: pytest --cov app
+      - name: Upload coverage to Codecov (arg token)
+        uses: codecov/codecov-action@main
         with:
+          fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+          verbose: true
+      - name: Upload coverage to Codecov (env token)
+        uses: codecov/codecov-action@main
+        with:
+          fail_ci_if_error: true
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload coverage to Codecov (no token)
+        uses: codecov/codecov-action@main
+        with:
+          fail_ci_if_error: true
+          verbose: true
+      - name: Upload coverage to Codecov (oidc)
+        uses: codecov/codecov-action@main
+        with:
+          fail_ci_if_error: true
+          use_oidc: true
+          verbose: true
