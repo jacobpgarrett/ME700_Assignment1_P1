@@ -1,0 +1,1 @@
+In this assignment, the forms of Generative AI that were used were vsCode Copilot, which assisted in completing code and ensuring correct Python syntax, and Chat GPT, which assisted in Github and CodeCov integration.
