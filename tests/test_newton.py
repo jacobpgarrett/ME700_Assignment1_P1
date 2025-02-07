@@ -38,7 +38,7 @@ def test_2D():
 def test_runtime_error():
     guess = 1
     x = sp.symbols('x')
-    f = lambda x: x
+    f = lambda x: x**2+1
     df = sp.lambdify(x, sp.diff(f(x), x))
     f = sp.lambdify(x, f(x))
     with pytest.raises(RuntimeError):
