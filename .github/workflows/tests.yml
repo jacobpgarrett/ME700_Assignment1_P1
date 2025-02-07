@@ -21,7 +21,7 @@ jobs:
         pip install numpy sympy pytest pytest-cov
 
     - name: Set PYTHONPATH
-      run: echo "::set-env name=PYTHONPATH::$(pwd)/src"
+      run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
 
     - name: Run tests with coverage
       run: pytest --cov=src/newton tests/
