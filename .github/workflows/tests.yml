@@ -34,10 +34,7 @@ jobs:
 
       - name: Run tests with coverage
         run: pytest --cov=ME700_Assignment1_P1 --cov-report=xml
-        # Replace 'newton' with your actual package name
-
-      - name: Convert coverage data to XML
-        run: coverage xml
+        # Replace 'ME700_Assignment1_P1' with your actual package name
 
       - name: List all files in the current directory
         run: ls -la
@@ -45,12 +42,15 @@ jobs:
       - name: List all files in the coverage directory
         run: ls -la ./coverage
 
-      - name: Debug coverage file
-        run: ls -la ./coverage.xml
+      - name: Debug .coverage file
+        run: ls -la .coverage
+
+      - name: Debug coverage.xml file
+        run: ls -la coverage.xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
+          files: coverage.xml
           fail_ci_if_error: true  # Ensure failure if upload fails
