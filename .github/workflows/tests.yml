@@ -22,7 +22,7 @@ jobs:
 
     - name: Run tests with coverage
       run: |
-        pytest --cov=newton tests/
+        pytest --cov=ME700_Assignment1_P1 tests/
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
