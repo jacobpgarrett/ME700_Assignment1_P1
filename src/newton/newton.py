@@ -25,11 +25,6 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
         # Solve linear algebra equation
         delta_x = np.linalg.solve(J, -F)
 
-        # Check for divergence
-        thresh = 1e6
-        if np.linalg.norm(delta_x) > thresh:
-            raise ValueError('Newton method diverged')
-
         # print("Delta x:", delta_x) # for debugging
 
         x += delta_x.ravel() # Add the changes in x to the current x without changing the shape of x

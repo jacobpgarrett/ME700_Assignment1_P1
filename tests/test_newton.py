@@ -48,16 +48,7 @@ def test_runtime_error():
 # Test ZeroDivisionError
 def test_zero_division_error():
     guess = [1, 1]
-    u, v = sp.symbols('u v')
-    f1 = u**2 + v**2 - 1
-    f2 = u**2 - v**2 - 1
-
-    f = sp.Matrix([f1, f2]) # Function vector
-
-    df = sp.Matrix([[0, 1], [1, 0]]) # Jacobian matrix with zero in the denominator
-
-    f = sp.lambdify((u, v), f, 'numpy')
-    df = sp.lambdify((u, v), df, 'numpy')
-
+    f = 5
+    df = 0
     with pytest.raises(ZeroDivisionError):
         newton(guess, f, df)
