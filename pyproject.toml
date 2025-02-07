@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ME700_Assignment1_P1"
+name = "newton"
 version = "0.0.0"
 authors = [
   { name="Jacob Garrett", email="jpg2002@bu.edu" },
 ]
-description = "ME700_Assignment1_P1 workflow"
+description = "newton workflow"
 readme = "README.md"
 license = { file="LICENSE" }
 requires-python = ">=3.9"
