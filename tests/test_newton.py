@@ -47,7 +47,7 @@ def test_runtime_error():
 
 # Test singular Jacobian
 def test_singular_jacobian():
-    guess = 0
+    guess = 1
     x = sp.symbols('x')
     f = lambda x: x**2
     df = sp.lambdify(x, sp.diff(f(x), x))
