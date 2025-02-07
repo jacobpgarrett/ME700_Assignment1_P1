@@ -45,12 +45,12 @@ def test_runtime_error():
     with pytest.raises(RuntimeError):
         newton(guess, f, df, 1e-9, 1)
 
-# Test ZeroDivisionError
-def test_zero_division_error():
-    guess = [1, 1]
+# Test singular Jacobian
+def test_singular_jacobian():
+    guess = 0
     x = sp.symbols('x')
-    f = lambda x: x/x
+    f = lambda x: x**2
     df = sp.lambdify(x, sp.diff(f(x), x))
     f = sp.lambdify(x, f(x))
-    with pytest.raises(ZeroDivisionError):
+    with pytest.raises(ValueError, match='Jacobian is singular'):
         newton(guess, f, df)
