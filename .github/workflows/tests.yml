@@ -34,7 +34,13 @@ jobs:
 
       - name: Run tests with coverage
         run: pytest --cov=newton --cov-report=xml
-        # Replace 'my_package' with your actual package name
+        # Replace 'newton' with your actual package name
+
+      - name: List all files in the current directory
+        run: ls -la
+
+      - name: List all files in the coverage directory
+        run: ls -la ./coverage
 
       - name: Debug coverage file
         run: ls -la ./coverage.xml
