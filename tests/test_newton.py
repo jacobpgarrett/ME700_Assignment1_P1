@@ -50,7 +50,7 @@ def test_singular_jacobian():
     guess = [1, 1]
     u, v = sp.symbols('u v')
     f1 = u + v
-    f2 = 2*u-2*v
+    f2 = 2*u+2*v
     f = sp.Matrix([f1, f2]) # Function vector
     df = f.jacobian([u, v]) # Define Jacobian matrix
     with pytest.raises(ValueError, match='Jacobian is singular'):
