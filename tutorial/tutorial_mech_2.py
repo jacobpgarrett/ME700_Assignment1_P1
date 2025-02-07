@@ -3,11 +3,12 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.newton.newton import newton
 import sympy as sp
+import numpy as np
 
 # Initial Guess, function and derivative defined
-guess = 1.5
+guess = 78
 x = sp.symbols('x')
-f = lambda x: 2*1*(sp.sqrt(1+x**2)-1)*(x/sp.sqrt(1+x**2))-0.25
+f = lambda x: 11.5*(3000000-2430000+(64-x**2)/2)-6520000
 
 # Convert to numerical form
 df = sp.lambdify(x, sp.diff(f(x), x))
