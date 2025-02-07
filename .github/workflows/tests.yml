@@ -36,6 +36,9 @@ jobs:
         run: pytest --cov=ME700_Assignment1_P1 --cov-report=xml
         # Replace 'newton' with your actual package name
 
+      - name: Convert coverage data to XML
+        run: coverage xml
+
       - name: List all files in the current directory
         run: ls -la
 
