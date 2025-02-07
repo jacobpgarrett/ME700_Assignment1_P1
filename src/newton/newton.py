@@ -10,10 +10,6 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
         if np.linalg.norm(J) == 0:
             raise ValueError('Jacobian is singular')
         
-        # Check for zero in the denominator
-        if np.any(J == 0):
-            raise ZeroDivisionError('Zero detected in the denominator of the Jacobian matrix')
-        
         F = np.atleast_1d(np.array(f(*x), dtype=float)) # Define the values of the function
         
         # # Print values for debugging
