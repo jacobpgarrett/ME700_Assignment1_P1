@@ -33,7 +33,7 @@ jobs:
         run: pip install pytest pytest-cov
 
       - name: Run tests with coverage
-        run: pytest --cov=newton --cov-report=xml
+        run: pytest --cov=ME700_Assignment1_P1 --cov-report=xml
         # Replace 'newton' with your actual package name
 
       - name: List all files in the current directory
