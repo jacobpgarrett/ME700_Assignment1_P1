@@ -44,3 +44,29 @@ def test_runtime_error():
     f = sp.lambdify(x, f(x))
     with pytest.raises(RuntimeError):
         newton(guess, f, df, 1e-9, 1)
+
+# Test ZeroDivisionError
+def test_zero_division_error():
+    guess = [1, 1]
+    u, v = sp.symbols('u v')
+    f1 = u**2 + v**2 - 1
+    f2 = u**2 - v**2 - 1
+
+    f = sp.Matrix([f1, f2]) # Function vector
+
+    df = sp.Matrix([[0, 1], [1, 0]]) # Jacobian matrix with zero in the denominator
+
+    f = sp.lambdify((u, v), f, 'numpy')
+    df = sp.lambdify((u, v), df, 'numpy')
+
+    with pytest.raises(ZeroDivisionError):
+        newton(guess, f, df)
+
+def test_diverge():
+    guess = 1
+    x = sp.symbols('x')
+    f = lambda x: x**(1/3)
+    df = sp.lambdify(x, sp.diff(f(x), x))
+    f = sp.lambdify(x, f(x))
+    with pytest.raises(ValueError):
+        newton(guess, f, df)

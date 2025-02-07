@@ -7,6 +7,13 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
     x = np.atleast_1d(np.array(guess, dtype=float)) # Initialize x as an array
     for i in range(max_iter):
         J = np.atleast_2d(np.array(df(*x), dtype=float)) # Define the Jacobian
+        if np.linalg.norm(J) == 0:
+            raise ValueError('Jacobian is singular')
+        
+        # Check for zero in the denominator
+        if np.any(J == 0):
+            raise ZeroDivisionError('Zero detected in the denominator of the Jacobian matrix')
+        
         F = np.atleast_1d(np.array(f(*x), dtype=float)) # Define the values of the function
         
         # # Print values for debugging
@@ -18,6 +25,11 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
         # Solve linear algebra equation
         delta_x = np.linalg.solve(J, -F)
 
+        # Check for divergence
+        thresh = 1e6
+        if np.linalg.norm(delta_x) > thresh:
+            raise ValueError('Newton method diverged')
+
         # print("Delta x:", delta_x) # for debugging
 
         x += delta_x.ravel() # Add the changes in x to the current x without changing the shape of x
@@ -28,5 +40,5 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
         if np.linalg.norm(F) < tol:
             return x
         
-    #Error message if the function runs for too long
+    # Error message if the function runs for too long
     raise RuntimeError('Newton method did not converge')
