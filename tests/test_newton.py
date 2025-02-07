@@ -34,3 +34,12 @@ def test_2D():
     found = newton(guess, f, df)
     known = [0.00296803, 0.42190384]
     assert np.allclose(found, known)
+
+def test_runtime_error():
+    guess = 1
+    x = sp.symbols('x')
+    f = lambda x: x
+    df = sp.lambdify(x, sp.diff(f(x), x))
+    f = sp.lambdify(x, f(x))
+    with pytest.raises(RuntimeError):
+        newton(guess, f, df)
