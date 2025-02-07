@@ -5,6 +5,10 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
     # Function to find the root of a system of equations using Newton's method
 
     x = np.atleast_1d(np.array(guess, dtype=float)) # Initialize x as an array
+
+    if np.all(f(*x) == 0): # If the initial guess is already a root
+        return x
+    
     for i in range(max_iter):
         J = np.atleast_2d(np.array(df(*x), dtype=float)) # Define the Jacobian
         if np.linalg.norm(J) == 0:
@@ -25,7 +29,7 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
 
         x += delta_x.ravel() # Add the changes in x to the current x without changing the shape of x
 
-        print("Updated x:", x) # for debugging
+        # print("Updated x:", x) # for debugging
 
         # Check for convergence
         if np.linalg.norm(F) < tol:
