@@ -46,7 +46,7 @@ Then, you can run pytest to ensure proper code coverage:
 pytest -v --cov=src/newton --cov-report term-missing
 ```
 
-## Using warmup tutorials
+## Using tutorials
 To load each tutorial, begin by navigating to the tutorials folder:
 ```bash
 cd tutorials
