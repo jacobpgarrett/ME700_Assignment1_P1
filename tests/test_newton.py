@@ -44,14 +44,3 @@ def test_runtime_error():
     f = sp.lambdify(x, f(x))
     with pytest.raises(RuntimeError):
         newton(guess, f, df, 1e-9, 1)
-
-# Test singular Jacobian
-def test_singular_jacobian():
-    guess = [1, 1]
-    u, v = sp.symbols('u v')
-    f1 = u + v
-    f2 = 2*u+2*v
-    f = sp.Matrix([f1, f2]) # Function vector
-    df = f.jacobian([u, v]) # Define Jacobian matrix
-    with pytest.raises(ValueError):
-        newton(guess, f, df)

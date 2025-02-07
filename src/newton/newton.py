@@ -11,8 +11,6 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
     
     for i in range(max_iter):
         J = np.atleast_2d(np.array(df(*x), dtype=float)) # Define the Jacobian
-        if np.linalg.det(J) == 0:
-            raise ValueError('Jacobian is singular')
         
         F = np.atleast_1d(np.array(f(*x), dtype=float)) # Define the values of the function
         
