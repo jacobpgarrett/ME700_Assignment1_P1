@@ -56,7 +56,18 @@ Then, to run a tutorial, type:
 ```bash
 python #(Name of Tutorial)
 ```
-Fill in the name of tutorial with one of the five, either Tutorial1.py or Tutorial2.py for simple examples of the bisection method, Tutorial3.py for an example where you can input different values for the bisection to occur, and Tutorial_Mech1.py or Tutorial_Mech2.py for examples derived from mechanics problems.
+Fill in the name of tutorial with one of the five tutorials in the folder, tutorial1.py, tutorial2.py, tutorial3.py, tutorial_mech_1.py, or tutorial_mech_2.py.
+
+## Tutorial 1
+Tutorial 1 exemplifies Newton's method for solving the function $x^3=0$.  An initial guess of 1 is set.
+
+## Tutorial 2
+Tutorial 2 solves the system of equations $u+v=0$ and $u-v=0$.  An initial guess of [1, 1] is set.
+
+## Tutorial 3
+Tutorial 3 solves a system of 5 equations: $x+y+z+w+v=15$, $2x-y+3z-2*w+v=7$, $x+2y-z+w-3v=-4$, $3x-4y+2z+5w-v=12$, and $x-y-z+w+v=1$.  The initial guess is set to [1, 1, 1, 1, 1].
+
+## Mechanics tutorial 1
 
 ## Generative AI Use
 
