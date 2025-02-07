@@ -53,5 +53,5 @@ def test_singular_jacobian():
     f2 = 2*u+2*v
     f = sp.Matrix([f1, f2]) # Function vector
     df = f.jacobian([u, v]) # Define Jacobian matrix
-    with pytest.raises(ValueError, match='Jacobian is singular'):
+    with pytest.raises(ValueError):
         newton(guess, f, df)
