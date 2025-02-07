@@ -48,7 +48,9 @@ def test_runtime_error():
 # Test ZeroDivisionError
 def test_zero_division_error():
     guess = [1, 1]
-    f = 5
-    df = 0
+    x = sp.symbols('x')
+    f = lambda x: x/x
+    df = sp.lambdify(x, sp.diff(f(x), x))
+    f = sp.lambdify(x, f(x))
     with pytest.raises(ZeroDivisionError):
         newton(guess, f, df)
