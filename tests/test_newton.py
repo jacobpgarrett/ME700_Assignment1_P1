@@ -44,3 +44,13 @@ def test_runtime_error():
     f = sp.lambdify(x, f(x))
     with pytest.raises(RuntimeError):
         newton(guess, f, df, 1e-9, 1)
+
+# Return given value when guess is root
+def test_return():
+    guess = 0
+    x = sp.symbols('x')
+    f = lambda x: x
+    df = sp.lambdify(x, sp.diff(f(x), x))
+    f = sp.lambdify(x, f(x))
+    found = newton(guess, f, df)
+    assert np.isclose(found, guess)
