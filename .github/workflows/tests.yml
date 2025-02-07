@@ -30,7 +30,7 @@ jobs:
         run: pip install -e .
 
       - name: Install test dependencies
-        run: pip install pytest pytest-cov
+        run: pip install pytest pytest-cov coverage
 
       - name: Run tests with coverage
         run: pytest --cov=ME700_Assignment1_P1 --cov-report=xml
