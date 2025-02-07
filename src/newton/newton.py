@@ -34,7 +34,7 @@ def newton(guess, f, df, tol=1e-9, max_iter=1000):
 
         x += delta_x.ravel() # Add the changes in x to the current x without changing the shape of x
 
-        # print("Updated x:", x) # for debugging
+        print("Updated x:", x) # for debugging
 
         # Check for convergence
         if np.linalg.norm(F) < tol:

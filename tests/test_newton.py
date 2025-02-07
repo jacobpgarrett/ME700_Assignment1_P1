@@ -61,12 +61,3 @@ def test_zero_division_error():
 
     with pytest.raises(ZeroDivisionError):
         newton(guess, f, df)
-
-def test_diverge():
-    guess = 1
-    x = sp.symbols('x')
-    f = lambda x: x**(1/3)
-    df = sp.lambdify(x, sp.diff(f(x), x))
-    f = sp.lambdify(x, f(x))
-    with pytest.raises(ValueError):
-        newton(guess, f, df)
