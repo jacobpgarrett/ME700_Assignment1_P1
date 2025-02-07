@@ -36,6 +36,9 @@ jobs:
         run: pytest --cov=branch --cov-report=xml
         # Replace 'my_package' with your actual package name
 
+      - name: Debug coverage file
+        run: ls -la ./coverage.xml
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
