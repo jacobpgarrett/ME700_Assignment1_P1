@@ -48,6 +48,9 @@ jobs:
       - name: Debug coverage.xml file
         run: ls -la coverage.xml
 
+      - name: Print coverage report
+        run: cat coverage.xml
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
