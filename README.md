@@ -68,6 +68,16 @@ Tutorial 2 solves the system of equations $u+v=0$ and $u-v=0$.  An initial guess
 Tutorial 3 solves a system of 5 equations: $x+y+z+w+v=15$, $2x-y+3z-2*w+v=7$, $x+2y-z+w-3v=-4$, $3x-4y+2z+5w-v=12$, and $x-y-z+w+v=1$.  The initial guess is set to [1, 1, 1, 1, 1].
 
 ## Mechanics tutorial 1
+The first mechanics tutorial solves the problem from ME 700 at Boston University that is used to introduce Newtown's method in 2D.  This problem wants to measure the horizontal and vertical deflection when a mass is subjected to a vertical force but is suspended by two springs of uneven stiffness.  A figure and the equations that are sovled for are below.  The initial guess is set to (1,1).  In these equations, $k_{AB}=100N/m$ is the spring constant for the spring connecting points A and B, $k_{BC} is the spring constant for the spring connecting points B and C, $l=10m$ is the unstretched length of the springs, and $F=0.1N$ is the force applied in the vertical direction.
+
+![image](https://github.com/user-attachments/assets/af72c4d9-b2aa-43cf-9fc2-8b3b1cf3f234)
+![image](https://github.com/user-attachments/assets/ca8a2ed1-8a3c-41b1-93a0-68477d6a05cf)
+
+
+## Mechanics Tutorial 2
+The second mechanics tutorial is a modified problem from ME 304 at Boston University, Thermodynamics.  In this example, there is a turbine with steam going through it.  Using conservation of energy, the velocity of the steam leaving the turbine can be found.  The equation for this problem is shown below.  Where $\cdot{W_{out}} = 6.52MW$ is the work done by the turbine, $\cdot{m} = 11.5kg/s$ is the mass flow rate, $h_1 = 3000\frac{kJ}{kg}$ is the enthalpy at the inlet, $h_2 = 2430\frac{kJ}{kg}$ is the enthalpy at the outlet, and $v_1=8m/s$ is the velocity of the steam at the inlet.  The energy balance solved is shown below:
+
+![image](https://github.com/user-attachments/assets/2ba29d7f-3836-45c0-86ea-b321078f7334)
 
 ## Generative AI Use
 
