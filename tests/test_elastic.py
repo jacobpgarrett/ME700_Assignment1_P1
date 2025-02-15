@@ -8,6 +8,7 @@ import pytest
 
 def test_zeros():
     epsilon = 0
-    known = [0, 0]
-    found = stress_behavior(epsilon, 10, 10, 10)
-    assert known == found
+    known = [0, 1]
+    [found_iso, found_kin] = stress_behavior(epsilon, 10, 10, 10)
+    assert known == found_iso
+    assert known == found_kin
