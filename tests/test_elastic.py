@@ -15,5 +15,5 @@ def test_simple():
     epsilon = np.array([0, 0.1])
     known = np.array([0, 1])
     [found_iso, found_kin] = stress_behavior(epsilon, 10, 10, 10)
-    assert known == found_iso
-    assert known == found_kin
+    assert np.all(known) == np.all(found_iso)
+    assert np.all(known) == np.all(found_kin)
