@@ -30,10 +30,10 @@ jobs:
         run: pip install -e .
 
       - name: Install test dependencies
-        run: pip install numpy sympy pytest pytest-cov coverage
+        run: pip install numpy sympy matplotlib.pyplot pytest pytest-cov coverage
 
       - name: Run tests with coverage
-        run: pytest --cov=src/newton --cov-report=xml
+        run: pytest --cov=. --cov-report=xml
         # Replace 'my_package' with your actual package name
 
       - name: Upload coverage to Codecov
