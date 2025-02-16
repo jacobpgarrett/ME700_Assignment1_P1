@@ -6,6 +6,10 @@ def check_epsilon(epsilon):
     if not isinstance(epsilon, np.ndarray):
         raise ValueError('Epsilon must be an array')
 
+def zero_state(epsilon):
+    if not epsilon[0] == 0:
+        raise ValueError('The initial strain must be 0')
+
 def isotropic(epsilon, E, H, Y0):
 
     '''
@@ -113,6 +117,8 @@ def stress_behavior(epsilon, E, H, Y0):
     mpl.close() # Closes open MatPlotLib windows
 
     check_epsilon(epsilon)
+
+    zero_state(epsilon)
 
     stress_isotropic = isotropic(epsilon, E, H, Y0) # Computes stress for given strains using isotropic hardening
     stress_kinematic = kinematic(epsilon, E, H, Y0) # Computes stress for given strains using kinematic hardening

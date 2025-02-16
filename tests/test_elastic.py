@@ -6,11 +6,13 @@ import sympy as sp
 import numpy as np
 import pytest
 
+# Test that the function checks that the input is an array
 def test_array():
     epsilon = 0
     with pytest.raises(ValueError):
         stress_behavior(epsilon, 10, 10, 10)
 
+# Checks to ensure that the function works
 def test_simple():
     epsilon = np.array([0, 0.1])
     known = np.array([0, 1])
@@ -18,6 +20,7 @@ def test_simple():
     assert np.all(known) == np.all(found_iso)
     assert np.all(known) == np.all(found_kin)
 
+# Tests that the function can accurately predict deformation using a sample deformation
 def test_plastic():
     epsilon = np.linspace(0, 0.05, int(0.05/0.001) + 1)
     known = [0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1., 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.,
@@ -28,3 +31,9 @@ def test_plastic():
     [found_iso, found_kin] = stress_behavior(epsilon, 100, 2, 111.11)
     assert np.all(known) == np.all(found_iso)
     assert np.all(known) == np.all(found_kin)
+
+# Tests that the function can ensure that the initial strain is 0
+def test_initial_state():
+    epsilon = np.linspace(1, 2, 100)
+    with pytest.raises(ValueError):
+        stress_behavior(epsilon, 5, 5, 5)
