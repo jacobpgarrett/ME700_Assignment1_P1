@@ -24,10 +24,13 @@ def isotropic(epsilon, E, H, Y0):
 
     '''
     
-    # Define initial state of 0
-    sig = np.zeros(len(epsilon))
-    Y = Y0
-    epsilon_p = np.zeros(len(epsilon))
+    #
+
+
+    # Define initial state
+    sig = np.zeros(len(epsilon)) # Initialize stress vector
+    Y = Y0 # Initial yield stress
+    epsilon_p = np.zeros(len(epsilon)) # Initialize plastic strain vector
 
     # Loop through each strain increment
     for i in range(1, len(epsilon)):
@@ -60,20 +63,20 @@ def kinematic(epsilon, E, H, Y0):
     E: Young's modulus
     H: hardening modulus
     Y0: initial yield stress
-    
+
     Output:
     sig: stress
 
     '''
 
     # Define initial state of 0
-    sig = np.zeros(len(epsilon))
-    alpha = np.zeros(len(epsilon))
-    epsilon_p = np.zeros(len(epsilon))
-    
+    sig = np.zeros(len(epsilon)) # Initialize stress vector
+    alpha = np.zeros(len(epsilon)) # Initialize back stress vector
+    epsilon_p = np.zeros(len(epsilon)) # Initialize plastic strain vector
+
     for i in range(1, len(epsilon)):
 
-        # Defines test environment
+        # Elastic Predictor Step
         sig_trial = sig[i-1] + E*(epsilon[i]-epsilon[i-1])
         alpha_trial = alpha[i-1]
         eta_trial = sig_trial-alpha_trial
