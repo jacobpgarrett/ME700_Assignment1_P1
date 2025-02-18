@@ -94,6 +94,9 @@ Tutorial 3 shows a material with a different set of properties.  In this case, t
 ## Mechanics Tutorial 1
 Consider a material with the properties described in Tutorial 1.  Say a cyclic strain is applied five times.  Under the isotropic and kinematic hardening models, what would the stress in the material look like?  What if the strain was applied for more than five cycles?  This tutorial provides the answer to this, where the models behave distinctly, and their steady-state behavior can be observed (both simple models neglect fatigue).
 
+## Mechanics Tutorial 2
+Consider a bar with a Young's Modulus of 200GPa, a Hardening Modulus of 25GPa, and a Yield Stress of 200MPa.  The bar is stretched 100.2% of its original length, then compressed to 99.8% of its original length. How do the isotropic and kinematic hardening models predict the stress of the beam?
+
 # General Information
 ## Generative AI Use
 
