@@ -33,12 +33,26 @@ jobs:
         run: pip install numpy sympy matplotlib pytest pytest-cov coverage
 
       - name: Run tests with coverage
-        run: pytest --cov=src tests/ --cov-report=xml
-        # Replace 'my_package' with your actual package name
+        run: pytest --cov=src --cov-report=xml
+
+      - name: List all files in the current directory
+        run: ls -la
+
+      - name: List all files in the coverage directory
+        run: ls -la ./coverage
+
+      - name: Debug .coverage file
+        run: ls -la .coverage
+
+      - name: Debug coverage.xml file
+        run: ls -la coverage.xml
+
+      - name: Print coverage report
+        run: cat coverage.xml
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
+          files: coverage.xml
           fail_ci_if_error: true  # Ensure failure if upload fails
