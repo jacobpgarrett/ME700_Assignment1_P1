@@ -41,7 +41,7 @@ jobs:
         run: pip install numpy sympy matplotlib pytest pytest-cov coverage
 
       - name: Run tests with coverage
-        run: pytest --cov=src --cov-report=xml
+        run: pytest --cov=. --cov-report=xml
         # Replace 'my_package' with your actual package name
 
       - name: Upload coverage to Codecov
