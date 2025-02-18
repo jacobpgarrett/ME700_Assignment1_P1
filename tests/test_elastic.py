@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.elastic.elastic import *
+from src.elastic import *
 import sympy as sp
 import numpy as np
 import pytest
