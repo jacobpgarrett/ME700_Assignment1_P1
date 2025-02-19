@@ -46,7 +46,7 @@ jobs:
       - name: Run tests with coverage
         run: |
           if [ ${{ runner.os }} == 'Windows' ]; then
-            $env:MPLBACKEND='Agg'
+            set MPLBACKEND=Agg
             pytest --cov=src --cov-report=xml
           else
             MPLBACKEND=Agg pytest --cov=src --cov-report=xml
