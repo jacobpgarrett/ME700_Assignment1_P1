@@ -33,7 +33,14 @@ jobs:
         run: pip install matplotlib
 
       - name: Run tests with coverage
-        run: MPLBACKEND=Agg pytest --cov=src --cov-report=xml
+        run: |
+          if [ ${{ runner.os }} == 'Windows' ]; then
+            $env:MPLBACKEND='Agg'
+            pytest --cov=src --cov-report=xml
+          else
+            MPLBACKEND=Agg pytest --cov=src --cov-report=xml
+          fi
+        shell: bash
         
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
