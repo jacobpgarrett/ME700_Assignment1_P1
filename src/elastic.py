@@ -22,8 +22,8 @@ class MaterialModel:
             raise ValueError("The initial strain must be 0")
 
     # Different hardening subclasses use different methods
-    def calculate_stress(self):
-        raise NotImplementedError("Subclasses should implement this method")
+    # def calculate_stress(self):
+        # raise NotImplementedError("Subclasses should implement this method")
 
 class IsotropicHardening(MaterialModel):
     def calculate_stress(self):
