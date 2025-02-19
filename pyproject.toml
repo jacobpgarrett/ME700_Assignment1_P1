@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "newton"
+name = "ME700_Assignment1_P1"
 version = "0.0.0"
 authors = [
   { name="Jacob Garrett", email="jpg2002@bu.edu" },
 ]
-description = "newton workflow"
+description = "ME700_Assignment1_P1 workflow"
 readme = "README.md"
 license = { file="LICENSE" }
 requires-python = ">=3.9"
@@ -22,4 +22,5 @@ dependencies = [
     "pytest==7.1.2",
     "pytest-cov==3.0.0",
     "sympy==1.13.3"
+    "matplotlib"==3.5.1
 ]
