@@ -1,4 +1,4 @@
-# ME 700 Assignment 1 Part 1
+# ME 700 Assignment 1
 This assignment serves as an introduction to Python, Github, and good coding practices for mechanical computation.  This assignment is split into 3 parts: a warmup interacting with the bisection method, a first part working with Newton's Method, and a second incorporating an elastoplastic material model.
 
 [![python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
@@ -41,6 +41,11 @@ Create an editable install of the code:
 pip install -e .
 ```
 
+Then install the matplotlib library:
+```bash
+pip install matplotlib
+```
+
 Then, you can run pytest to ensure proper code coverage:
 ```bash
 pytest -v --cov=src --cov-report term-missing
@@ -81,6 +86,9 @@ The second mechanics tutorial is a modified problem from ME 304 at Boston Univer
 ![image](https://github.com/user-attachments/assets/2ba29d7f-3836-45c0-86ea-b321078f7334)
 
 # Elasto-Plastic Modeling Tutorials
+
+## Note
+The tutorials below will not work on a terminal with no GUI such as the BU SCC.  They require the use of a Jupyter Notebook or working on VSCode.
 
 ## Tutorial 1
 Tutorial 1 shows how a material with a Young's Modulus of 100, a Yield stress of 2, and a hardening modulus of 111.11 behaves under strains from 0-5%.
