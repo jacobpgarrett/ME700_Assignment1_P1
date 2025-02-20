@@ -1,4 +1,4 @@
-# ME 700 Assignment 1 Part 1
+# ME 700 Assignment 1
 This assignment serves as an introduction to Python, Github, and good coding practices for mechanical computation.  This assignment is split into 3 parts: a warmup interacting with the bisection method, a first part working with Newton's Method, and a second incorporating an elastoplastic material model.
 
 [![python](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
