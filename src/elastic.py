@@ -3,6 +3,13 @@ import matplotlib.pyplot as mpl
 
 # Define Material Model Class
 class MaterialModel:
+
+    '''
+    
+    Material Model is a class that defines some general functionalities that are common for the material models\
+    that are tested in this script
+    '''
+
     def __init__(self, epsilon, E, H, Y0):
         self.epsilon = epsilon # Input strain
         self.E = E # Input Young's Modulus
@@ -26,14 +33,22 @@ class MaterialModel:
         # raise NotImplementedError("Subclasses should implement this method")
 
 class IsotropicHardening(MaterialModel):
+
+    '''
+
+    This subclass defines what takes place when the isotropic hardening case is called
+
+    '''
+
     def calculate_stress(self):
 
         # Initialize Data vectors
-        sig = np.zeros(len(self.epsilon))
-        Y = self.Y0
-        epsilon_p = np.zeros(len(self.epsilon))
+        sig = np.zeros(len(self.epsilon)) # Initializes stress vector
+        Y = self.Y0 # Initializes yield stress
+        epsilon_p = np.zeros(len(self.epsilon)) # Initializes plastic strain vector
 
         for i in range(1, len(self.epsilon)):
+
             # Elastic Predictor Step
             Y = self.Y0 + self.H * epsilon_p[i - 1]
             del_sig_trial = self.E * (self.epsilon[i] - self.epsilon[i - 1])
@@ -51,13 +66,24 @@ class IsotropicHardening(MaterialModel):
         return sig
 
 class KinematicHardening(MaterialModel):
+
+    '''
+    
+    This subclass defines what takes place when the kinematic hardening case is called
+
+    
+    '''
+
+
     def calculate_stress(self):
+        
         # Initialize Data Vectors
-        sig = np.zeros(len(self.epsilon))
-        alpha = np.zeros(len(self.epsilon))
-        epsilon_p = np.zeros(len(self.epsilon))
+        sig = np.zeros(len(self.epsilon)) # Initialize stress vector
+        alpha = np.zeros(len(self.epsilon)) # Initialize back-stress vector
+        epsilon_p = np.zeros(len(self.epsilon)) # Initialize plastic strain vector
 
         for i in range(1, len(self.epsilon)):
+
             # Elastic Predictor Step
             sig_trial = sig[i - 1] + self.E * (self.epsilon[i] - self.epsilon[i - 1])
             alpha_trial = alpha[i - 1]

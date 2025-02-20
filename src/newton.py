@@ -2,7 +2,22 @@ import numpy as np
 from typing import Callable, Union
 
 def newton(guess, f, df, tol=1e-9, max_iter=1000):
-    # Function to find the root of a system of equations using Newton's method
+
+    '''
+
+    Function to find the root of a system of equations using Newton's method
+
+    Inputs:
+    guess: Initial guess for the root(s) of the equation(s)
+    f: Equation(s) to be solved
+    df: Either the derivative of f if f is a single equation or the Jacobian of the system of equations defined as f
+    tol: the tolerance of the function (initially defined as 1e-9)
+    max_iter: Maximum iterations the solver takes on before it times out (initially defined as 1000 steps)
+
+    Outputs:
+    x: x is the root(s) of the function
+
+    '''
 
     x = np.atleast_1d(np.array(guess, dtype=float)) # Initialize x as an array
 
