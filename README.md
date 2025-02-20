@@ -88,7 +88,7 @@ The second mechanics tutorial is a modified problem from ME 304 at Boston Univer
 # Elasto-Plastic Modeling Tutorials
 
 ## Note
-The tutorials below will not work on a terminal with no GUI such as the BU SCC.  They require the use of a Jupyter Notebook or working on VSCode.
+The tutorials below will not work on a terminal with no GUI such as the BU SCC.  They require the use of a Jupyter Notebook, working on VSCode, or an alternative method.
 
 ## Tutorial 1
 Tutorial 1 shows how a material with a Young's Modulus of 100, a Yield stress of 2, and a hardening modulus of 111.11 behaves under strains from 0-5%.
