@@ -41,6 +41,11 @@ Create an editable install of the code:
 pip install -e .
 ```
 
+Then install the matplotlib library:
+```bash
+pip install matplotlib
+```
+
 Then, you can run pytest to ensure proper code coverage:
 ```bash
 pytest -v --cov=src --cov-report term-missing
